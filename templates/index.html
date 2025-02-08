@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Root Finder</title>
+    </head>
+    <body>
+        <h1>Root Finder Using Bisection and Newton's Method</h1>
+        <form method="post">
+            <label for="function">Enter Function (e.g. x^2 - 4): </label><br>
+            <input type="text" name="function" id="function" required><br><br>
+
+            <label for="a">Interval start (a):</label><br>
+            <input type="text" name="a" id="a" required><br><br>
+
+            <label for="b">Interval end (b):</label><br>
+            <input type="text" name="b" id="b" required><br><br>
+
+            <label for="eps">Precision (eps):</label><br>
+            <input type="text" name="eps" id="eps" required><br><br>
+
+            <input type="submit" value="Find Root">
+        </form>
+        {% if img_data %}
+            <h3>Results:</h3>
+            <p>Bisection Method Root: {{ bisection_root }}</p>
+            <p> Bisection Method Iterations: {{ bisection_iterations}}</p>
+            <!-- <p>Fixed Point Root: {{ fixed_point_root }}</p>
+            <p>Fixed Point Method Iterations: {{ fixed_point_iterations }}</p> -->
+            <p>Newton's Method Root: {{ newton_root }}</p>
+            <p>Newton's Method Iterations: {{ newton_iterations }}</p>
+
+            <h3>Convergence Graph:</h3>
+            <img src="data:image/png;base64,{{ img_data }}" alt="Convergnce Graph">
+        {% endif %}
+    </body>
+</html>
