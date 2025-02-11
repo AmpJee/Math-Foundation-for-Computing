@@ -66,19 +66,28 @@ def generate_hilbert_matrix(n):
 def main():
     N = 3
 
+    print("=" * 50)
+    print(f"Testing with N = {N} (Normal System)")
+    print("=" * 50)
+
     matrix, vector, x_true = generate_linear_system(N)
     print("Generated Normal System:")
     print_system(matrix, vector)
+    print(f"Expected Solution: {x_true}")
 
     solution = gaussian_elimination(matrix, vector)
     print("Computed Solution:", solution)
     error = test_solution(matrix, vector, solution)
     print("Residual Error:", error)
 
+    print("\n" + "=" * 50)
+    print(f"Testing with N = {N} (Hilbert System)")
+    print("=" * 50)
 
     matrix_hilbert, vector_hilbert, x_true_hilbert = generate_hilbert_matrix(N)
-    print("\nGenerated Hilbert System:")
+    print("Generated Hilbert System:")
     print_system(matrix_hilbert, vector_hilbert)
+    print(f"Expected Solution: {x_true_hilbert}")
 
     solution_hilbert = gaussian_elimination(matrix_hilbert, vector_hilbert)
     print("Computed Hilbert Solution:", solution_hilbert)
