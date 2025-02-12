@@ -80,7 +80,20 @@ matrix, vector, x_true = generate_linear_system(N)
 x0 = generate_x0(x_true)
 
 jacobi_result, jacobi_history = jacobi_method(matrix, vector, x0)
-se
+gauss_seidel_result, gauss_seidel_history = gauss_seidel_method(matrix, vector, x0)
 
-# print("="*50)
-# jacobi_method(a, b, x0)
+print(f"True solution: {x_true}")
+print(f"Jacobi method: {jacobi_result}")
+print(f"Gauss-Seidel method: {gauss_seidel_result}")
+
+iterations = range(1, len(jacobi_history) + 1)
+plt.plot(iterations, jacobi_history, label="Jacobi")
+plt.plot(iterations, gauss_seidel_history, label="Gauss-Seidel")
+plt.xlabel("Iterations")
+plt.ylabel("Error")
+plt.legend()
+plt.show()
+
+print("="*50)
+print(f"Jacobi residual: {test_solution(matrix, vector, jacobi_result)}")
+print(f"Gauss-Seidel residual: {test_solution(matrix, vector, gauss_seidel_result)}")
