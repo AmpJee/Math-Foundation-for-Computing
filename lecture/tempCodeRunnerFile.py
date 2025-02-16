@@ -1,5 +1,1 @@
-x = [0, 1, 2]
-y = [1, 2, 3]
-x_values = np.linspace(0, 2, 100)
-y_values = lagrange_interpolation(x, y, x_values)
-print(y_values)
+return 13 * np.cos(t) - 5 * np.cos(2*t) - 2 * np.cos(3*t) - np.cos(4*t)
